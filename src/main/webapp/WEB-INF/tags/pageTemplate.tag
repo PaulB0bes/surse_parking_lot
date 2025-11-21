@@ -4,8 +4,12 @@
 <html>
 <head>
     <title>${pageTitle}</title>
+
 </head>
 <body>
-<jsp:doBody/>
+    <jsp:include page="/WEB-INF/pages/menu.jsp" />
+    <main class="container-fluid mt-5">
+        <jsp:doBody/>
+    </main>
 </body>
 </html>
