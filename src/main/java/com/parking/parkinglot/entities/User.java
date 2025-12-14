@@ -1,4 +1,4 @@
-package org.example.parkinglot;
+package com.parking.parkinglot.entities;
 
 import jakarta.persistence.*;
 
@@ -13,14 +13,30 @@ public class User {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "email")
     private String email;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "username")
+    private String username;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     @OneToMany(mappedBy = "owner", orphanRemoval = true)
     private List<Car> cars = new ArrayList<>();
@@ -32,15 +48,6 @@ public class User {
     public void setCars(List<Car> cars) {
         this.cars = cars;
     }
-// Getters and Setters
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
@@ -50,19 +57,12 @@ public class User {
         this.username = username;
     }
 
-    public String getEmail() {
-        return email;
+    public Long getId() {
+        return id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
